@@ -65,7 +65,7 @@ export const syncTasksWithGoogleCalendar = async (tasks: any[], calendarId?: str
   // 3. Створити новий календар, якщо потрібно
   // 4. Синхронізувати задачі в обох напрямках
 };
-
+//
 // Функція для отримання списку подій з Google Calendar
 export const getGoogleCalendarEvents = async (startDate: Date, endDate: Date, calendarId?: string) => {
   throw new Error('Ця функція ще не реалізована. Потрібна OAuth авторизація з Google Calendar API');
