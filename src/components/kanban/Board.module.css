@@ -1,0 +1,118 @@
+/* src/components/kanban/Board.module.css */
+.boardContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .boardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--neutral-200);
+    transition: all var(--transition-normal);
+    z-index: 2;
+  }
+  
+  .sticky {
+    position: sticky;
+    top: 0;
+    box-shadow: var(--shadow-md);
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+  }
+  
+  .boardTitle {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin: 0;
+  }
+  
+  .boardActions {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+  
+  .boardContent {
+    display: flex;
+    overflow-x: auto;
+    min-height: calc(100vh - 150px);
+    padding: var(--spacing-lg);
+    background-color: var(--neutral-100);
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+  }
+  
+  .boardContent::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  .boardContent::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 0 var(--spacing-lg);
+  }
+  
+  .boardContent::-webkit-scrollbar-thumb {
+    background-color: var(--neutral-300);
+    border-radius: var(--radius-full);
+  }
+  
+  .boardContent::-webkit-scrollbar-thumb:hover {
+    background-color: var(--neutral-400);
+  }
+  
+  .addColumnPlaceholder {
+    min-width: 280px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px dashed var(--neutral-300);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .addColumnPlaceholder:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: var(--primary-color);
+  }
+  
+  @media (max-width: 768px) {
+    .boardHeader {
+      padding: var(--spacing-md);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+    }
+  
+    .boardTitle {
+      font-size: var(--font-size-xl);
+    }
+  
+    .boardContent {
+      padding: var(--spacing-md);
+      gap: var(--spacing-md);
+    }
+  }
+  
+  /* Анімації для нових елементів */
+  @keyframes slideInBottom {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .boardContainer {
+    animation: slideInBottom 0.3s ease-out;
+  }

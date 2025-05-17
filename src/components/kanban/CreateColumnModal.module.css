@@ -1,0 +1,72 @@
+/* src/components/kanban/CreateColumnModal.module.css */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .suggestionTitle {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+    font-weight: 500;
+    margin-top: var(--spacing-xs);
+  }
+  
+  .suggestionContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
+  }
+  
+  .suggestionBtn {
+    font-size: var(--font-size-xs);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .suggestionBtn:hover {
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+  }
+  
+  .suggestionBtn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+  }
+  
+  /* Анімації */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .suggestionContainer {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .form {
+      gap: var(--spacing-sm);
+    }
+  
+    .suggestionContainer {
+      margin-top: 0;
+    }
+  }

@@ -1,0 +1,184 @@
+/* src/components/ui/Modal/Modal.module.css */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal-backdrop);
+    padding: var(--spacing-md);
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  .modal {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    width: 100%;
+    max-height: calc(100vh - var(--spacing-xl) * 2);
+    position: relative;
+    z-index: var(--z-modal);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: scaleIn 0.3s ease-out;
+  }
+  
+  /* Розміри модального вікна */
+  .size-sm {
+    max-width: 400px;
+  }
+  
+  .size-md {
+    max-width: 600px;
+  }
+  
+  .size-lg {
+    max-width: 800px;
+  }
+  
+  .size-xl {
+    max-width: 1000px;
+  }
+  
+  .size-full {
+    max-width: 90vw;
+    height: 90vh;
+  }
+  
+  /* Заголовок модального вікна */
+  .header {
+    padding: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  
+  .title {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--neutral-900);
+  }
+  
+  /* Тіло модального вікна */
+  .body {
+    padding: var(--spacing-lg);
+    flex: 1;
+  }
+  
+  .scrollable .body {
+    overflow-y: auto;
+  }
+  
+  /* Футер модального вікна */
+  .footer {
+    padding: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--neutral-200);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+  }
+  
+  /* Кнопка закриття */
+  .closeButton {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neutral-500);
+    cursor: pointer;
+    z-index: 1;
+    border-radius: var(--radius-full);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+  }
+  
+  .closeButton:hover {
+    color: var(--neutral-900);
+    background-color: var(--neutral-100);
+  }
+  
+  .closeButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+  }
+  
+  /* Завантаження */
+  .loading {
+    pointer-events: none;
+  }
+  
+  .loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    color: var(--neutral-600);
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--neutral-200);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s linear infinite;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Анімації */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .overlay {
+      padding: var(--spacing-sm);
+    }
+    
+    .modal {
+      max-height: calc(100vh - var(--spacing-lg) * 2);
+    }
+    
+    .header, .body, .footer {
+      padding: var(--spacing-md);
+    }
+    
+    .size-sm, .size-md, .size-lg, .size-xl {
+      max-width: 100%;
+    }
+  }

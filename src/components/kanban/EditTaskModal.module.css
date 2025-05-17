@@ -1,0 +1,122 @@
+/* src/components/kanban/EditTaskModal.module.css */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .formGroup {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .label {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    display: block;
+  }
+  
+  .textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-base);
+    resize: vertical;
+    min-height: 120px;
+    transition: all var(--transition-normal);
+    background-color: var(--card-bg);
+    color: var(--neutral-900);
+  }
+  
+  .textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+  }
+  
+  .textarea::placeholder {
+    color: var(--neutral-400);
+  }
+  
+  .hint {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-500);
+    margin-top: var(--spacing-xs);
+  }
+  
+  .labelsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin: var(--spacing-sm) 0;
+  }
+  
+  .labelChip {
+    font-size: var(--font-size-xs);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .labelChip button {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+  }
+  
+  .labelChip button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .addLabelInput {
+    display: flex;
+    gap: var(--spacing-xs);
+  }
+  
+  .taskInfo {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    background-color: var(--neutral-100);
+    font-size: var(--font-size-sm);
+  }
+  
+  .infoItem {
+    display: flex;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .infoItem:last-child {
+    margin-bottom: 0;
+  }
+  
+  .infoLabel {
+    color: var(--neutral-600);
+    min-width: 80px;
+    margin-right: var(--spacing-sm);
+  }
+  
+  .infoValue {
+    color: var(--neutral-800);
+    font-weight: 500;
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .addLabelInput {
+      flex-direction: column;
+    }
+  }

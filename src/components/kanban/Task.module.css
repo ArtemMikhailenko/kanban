@@ -1,0 +1,216 @@
+/* src/components/kanban/Task.module.css */
+.taskCard {
+    background-color: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-md);
+    min-height: var(--task-min-height);
+    border-left: 3px solid var(--neutral-300);
+    transition: all var(--transition-normal);
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .taskCard:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  
+  .dragging {
+    box-shadow: var(--shadow-lg) !important;
+    border-color: var(--primary-color);
+    opacity: 0.9;
+  }
+  
+  .taskHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .taskTitle {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin: 0;
+    flex: 1;
+    line-height: 1.4;
+  }
+  
+  .taskDescription {
+    color: var(--neutral-700);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    flex: 1;
+    word-break: break-word;
+  }
+  
+  .taskFooter {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .taskDeadline {
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+  }
+  
+  .deadlineOverdue {
+    color: white;
+    background-color: var(--error-color);
+  }
+  
+  .deadlineToday {
+    color: white;
+    background-color: var(--warning-color);
+  }
+  
+  .deadlineTomorrow {
+    color: var(--neutral-800);
+    background-color: var(--warning-light);
+  }
+  
+  .deadlineFuture {
+    color: var(--neutral-700);
+    background-color: var(--neutral-100);
+  }
+  
+  .taskLabels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+  
+  .taskLabel {
+    font-size: var(--font-size-xs);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+  
+  .taskActionButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-full);
+    background-color: transparent;
+    color: var(--neutral-500);
+    transition: all var(--transition-normal);
+  }
+  
+  .taskActionButton:hover {
+    background-color: var(--neutral-100);
+    color: var(--neutral-900);
+  }
+  
+  .taskOptionsContainer {
+    position: relative;
+    z-index: 5;
+  }
+  
+  .taskOptions {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: var(--spacing-xs);
+    background-color: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    min-width: 200px;
+    overflow: hidden;
+    animation: fadeIn 0.2s ease-out;
+    z-index: 10;
+  }
+  
+  .taskOption {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    color: var(--neutral-700);
+    transition: all var(--transition-normal);
+  }
+  
+  .taskOption:hover {
+    background-color: var(--neutral-100);
+    color: var(--neutral-900);
+  }
+  
+  .deleteOption {
+    color: var(--error-color);
+  }
+  
+  .deleteOption:hover {
+    background-color: var(--error-light);
+  }
+  
+  /* Прогресс бар для задач з дедлайном */
+  .taskProgressContainer {
+    height: 4px;
+    background-color: var(--neutral-200);
+    border-radius: var(--radius-full);
+    margin-top: var(--spacing-xs);
+    overflow: hidden;
+  }
+  
+  .taskProgress {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+  }
+  
+  .taskProgress.warning {
+    background-color: var(--warning-color);
+  }
+  
+  .taskProgress.danger {
+    background-color: var(--error-color);
+  }
+  
+  /* Анімації */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Різні стилі карток в залежності від колонки */
+  .taskCard.todo {
+    border-left-color: var(--todo-color);
+  }
+  
+  .taskCard.inProgress {
+    border-left-color: var(--progress-color);
+  }
+  
+  .taskCard.review {
+    border-left-color: var(--review-color);
+  }
+  
+  .taskCard.done {
+    border-left-color: var(--done-color);
+  }

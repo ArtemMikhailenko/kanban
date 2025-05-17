@@ -1,0 +1,186 @@
+/* src/components/dashboard/ProjectCard.module.css */
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-normal);
+    border: 1px solid var(--neutral-200);
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+  }
+  
+  .projectTitle {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  .menuContainer {
+    position: relative;
+  }
+  
+  .menuButton {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background-color: transparent;
+    color: var(--neutral-500);
+    transition: all var(--transition-normal);
+  }
+  
+  .menuButton:hover {
+    background-color: var(--neutral-100);
+    color: var(--neutral-900);
+  }
+  
+  .menuDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: var(--spacing-xs);
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+    min-width: 160px;
+    overflow: hidden;
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  .menuItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    color: var(--neutral-700);
+    transition: all var(--transition-normal);
+  }
+  
+  .menuItem:hover {
+    background-color: var(--neutral-100);
+    color: var(--neutral-900);
+  }
+  
+  .menuItemDelete {
+    color: var(--error-color);
+  }
+  
+  .menuItemDelete:hover {
+    background-color: var(--error-light);
+  }
+  
+  .description {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    flex: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  
+  .stats {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .statItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--neutral-200);
+  }
+  
+  .updatedAt {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-500);
+  }
+  
+  .viewProject {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: all var(--transition-normal);
+  }
+  
+  .card:hover .viewProject {
+    color: var(--primary-dark);
+  }
+  
+  .card:hover .viewProject svg {
+    transform: translateX(3px);
+  }
+  
+  .viewProject svg {
+    transition: transform var(--transition-normal);
+  }
+  
+  /* Анімації */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .card {
+      padding: var(--spacing-md);
+    }
+    
+    .projectTitle {
+      font-size: var(--font-size-md);
+    }
+    
+    .stats {
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+  }

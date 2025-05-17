@@ -1,0 +1,262 @@
+/* src/app/profile/page.module.css */
+.profileContainer {
+    padding: var(--spacing-lg);
+    background-color: var(--neutral-50);
+    min-height: calc(100vh - var(--header-height));
+  }
+  
+  .profileHeader {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .profileHeader h1 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin: 0;
+  }
+  
+  .profileContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .profileCard,
+  .securityCard,
+  .dangerZoneCard {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-lg);
+  }
+  
+  .profileCard {
+    display: flex;
+    gap: var(--spacing-lg);
+  }
+  
+  .avatarSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+  
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+  }
+  
+  .avatarPlaceholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 600;
+    border: 3px solid var(--primary-color);
+  }
+  
+  .profileDetails {
+    flex: 1;
+  }
+  
+  .viewMode {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+  
+  .profileInfo {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .profileName {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin: 0 0 var(--spacing-xs) 0;
+  }
+  
+  .profileEmail {
+    font-size: var(--font-size-md);
+    color: var(--neutral-600);
+    margin: 0;
+  }
+  
+  .infoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .infoLabel {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    font-weight: 500;
+  }
+  
+  .infoValue {
+    font-size: var(--font-size-md);
+    color: var(--neutral-900);
+  }
+  
+  .profileActions {
+    margin-top: var(--spacing-md);
+  }
+  
+  .cardTitle {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin: 0 0 var(--spacing-md) 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  
+  .editForm,
+  .passwordForm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .formGroup {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+  }
+  
+  .errorMessage {
+    background-color: var(--error-light);
+    color: var(--error-color);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+  
+  .securityActions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .dangerZoneContent {
+    background-color: var(--error-light);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .dangerText {
+    color: var(--error-color);
+    margin: 0;
+  }
+  
+  /* Завантаження */
+  .loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - var(--header-height));
+    color: var(--neutral-700);
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--neutral-200);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s linear infinite;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: calc(100vh - var(--header-height));
+    padding: var(--spacing-lg);
+  }
+  
+  .errorActions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+  
+  /* Анімації */
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translateX(-1px);
+    }
+    
+    20%, 80% {
+      transform: translateX(2px);
+    }
+    
+    30%, 50%, 70% {
+      transform: translateX(-4px);
+    }
+    
+    40%, 60% {
+      transform: translateX(4px);
+    }
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .profileContainer {
+      padding: var(--spacing-md);
+    }
+    
+    .profileCard {
+      flex-direction: column;
+    }
+    
+    .infoGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .formActions {
+      flex-direction: column;
+    }
+    
+    .formActions button {
+      width: 100%;
+    }
+  }

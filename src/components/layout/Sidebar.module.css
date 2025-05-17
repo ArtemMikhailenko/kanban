@@ -1,0 +1,300 @@
+/* src/components/layout/Sidebar.module.css */
+.sidebar {
+    position: fixed;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--neutral-200);
+    display: flex;
+    flex-direction: column;
+    transition: width var(--transition-normal);
+    z-index: var(--z-fixed);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .sidebar.collapsed {
+    width: var(--sidebar-collapsed);
+  }
+  
+  .sidebarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    padding: 0 var(--spacing-md);
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    text-decoration: none;
+    color: var(--neutral-900);
+    font-weight: 700;
+    font-size: var(--font-size-md);
+    transition: color var(--transition-normal);
+  }
+  
+  .logo:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  .collapseButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--neutral-500);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .collapseButton:hover {
+    background-color: var(--neutral-100);
+    color: var(--neutral-900);
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+  }
+  
+  .navLink {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    color: var(--neutral-700);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+  
+  .navLink:hover {
+    background-color: var(--neutral-100);
+    color: var(--neutral-900);
+    text-decoration: none;
+  }
+  
+  .navLink.active {
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+  }
+  
+  .navIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+  }
+  
+  .navLabel {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .recentProjects {
+    padding: var(--spacing-md);
+    flex: 1;
+  }
+  
+  .sectionTitle {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    color: var(--neutral-500);
+    margin: 0 0 var(--spacing-sm) 0;
+    padding: 0 var(--spacing-md);
+  }
+  
+  .projectsList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .projectLink {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    color: var(--neutral-700);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+  
+  .projectLink:hover {
+    background-color: var(--neutral-100);
+    color: var(--neutral-900);
+    text-decoration: none;
+  }
+  
+  .projectLink.active {
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+  }
+  
+  .projectIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 16px;
+  }
+  
+  .projectName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .bottomNav {
+    margin-top: auto;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    border-top: 1px solid var(--neutral-200);
+  }
+  
+  /* Мобільний вигляд */
+  .mobileToggle {
+    position: fixed;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: calc(var(--z-fixed) - 1);
+    transition: all var(--transition-normal);
+    display: none;
+  }
+  
+  .mobileToggle:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.05);
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: calc(var(--z-fixed) - 1);
+    display: none;
+  }
+  
+  /* Анімації */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 991px) {
+    .sidebar {
+      left: -100%;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .sidebar.mobileExpanded {
+      left: 0;
+      animation: slideIn 0.3s ease-out;
+    }
+    
+    .mobileToggle {
+      display: flex;
+    }
+    
+    .overlay {
+      display: block;
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    .collapseButton {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .sidebar {
+      /* Позиціонування для десктопу */
+      left: 0;
+    }
+  }
+  
+  /* Стилі для згорнутого сайдбару */
+  .sidebar.collapsed .logo {
+    justify-content: center;
+  }
+  
+  .sidebar.collapsed .logoText {
+    display: none;
+  }
+  
+  .sidebar.collapsed .sectionTitle {
+    text-align: center;
+    padding: 0;
+  }
+  
+  .sidebar.collapsed .navLink,
+  .sidebar.collapsed .projectLink {
+    justify-content: center;
+    padding: var(--spacing-sm);
+  }
+  
+  .sidebar.collapsed .navLabel,
+  .sidebar.collapsed .projectName {
+    display: none;
+  }
+  
+  /* Стилі для скроллбару сайдбару */
+  .sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .sidebar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--neutral-300);
+    border-radius: var(--radius-full);
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--neutral-400);
+  }

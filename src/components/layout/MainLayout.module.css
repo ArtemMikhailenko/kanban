@@ -1,0 +1,32 @@
+/* src/components/layout/MainLayout.module.css */
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--neutral-50);
+  }
+  
+  .main {
+    flex: 1;
+    width: 100%;
+    transition: padding-left var(--transition-normal);
+  }
+  
+  .withSidebar {
+    padding-left: var(--sidebar-width);
+  }
+  
+  .withCollapsedSidebar {
+    padding-left: var(--sidebar-collapsed);
+  }
+  
+  .scrolled {
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 991px) {
+    .withSidebar, .withCollapsedSidebar {
+      padding-left: 0;
+    }
+  }

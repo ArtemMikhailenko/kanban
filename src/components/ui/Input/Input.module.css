@@ -1,0 +1,190 @@
+/* src/components/ui/Input/Input.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .fullWidth {
+    width: 100%;
+  }
+  
+  .label {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+  }
+  
+  .required::after {
+    content: '*';
+    color: var(--error-color);
+    margin-left: 4px;
+  }
+  
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input {
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    width: 100%;
+    transition: all var(--transition-normal);
+    background-color: var(--card-bg);
+    color: var(--neutral-900);
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+  }
+  
+  .input::placeholder {
+    color: var(--neutral-400);
+  }
+  
+  /* Варіанти інпутів */
+  .variant-default .input {
+    border: 1px solid var(--neutral-300);
+  }
+  
+  .variant-filled .input {
+    border: 1px solid transparent;
+    background-color: var(--neutral-100);
+  }
+  
+  .variant-filled.focused .input {
+    background-color: var(--neutral-50);
+  }
+  
+  .variant-flushed .input {
+    border: none;
+    border-bottom: 1px solid var(--neutral-300);
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .variant-flushed.focused .input {
+    box-shadow: 0 1px 0 0 var(--primary-color);
+  }
+  
+  /* Розміри інпутів */
+  .size-sm .input {
+    height: 32px;
+    padding: 0 30px;
+    font-size: var(--font-size-xs);
+  }
+  
+  .size-md .input {
+    height: 40px;
+    padding: 0 30px;
+    font-size: var(--font-size-sm);
+  }
+  
+  .size-lg .input {
+    height: 48px;
+    padding: 0 30px;
+    font-size: var(--font-size-md);
+  }
+  
+  /* Іконки */
+  .leftIcon, .rightIcon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--neutral-500);
+    transition: color var(--transition-normal);
+    z-index: 1;
+  }
+  
+  .leftIcon {
+    left: var(--spacing-sm);
+  }
+  
+  .rightIcon {
+    right: var(--spacing-sm);
+    cursor: pointer;
+  }
+  
+  .hasLeftIcon {
+    padding-left: calc(var(--spacing-md) * 2);
+  }
+  
+  .hasRightIcon {
+    padding-right: calc(var(--spacing-md) * 2);
+  }
+  
+  .focused .leftIcon,
+  .focused .rightIcon {
+    color: var(--primary-color);
+  }
+  
+  /* Стилі для помилки та підказки */
+  .error, .hint {
+    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-xs);
+    transition: all var(--transition-normal);
+  }
+  
+  .error {
+    color: var(--error-color);
+  }
+  
+  .hint {
+    color: var(--neutral-500);
+  }
+  
+  .hasError .input {
+    border-color: var(--error-color);
+  }
+  
+  .hasError.focused .input {
+    box-shadow: 0 0 0 1px var(--error-color);
+  }
+  
+  /* Відключений стан */
+  .disabled {
+    opacity: 0.6;
+  }
+  
+  .disabled .input {
+    cursor: not-allowed;
+    background-color: var(--neutral-100);
+  }
+  
+  .disabled .leftIcon,
+  .disabled .rightIcon {
+    pointer-events: none;
+  }
+  
+  /* Стилі при наведенні */
+  .container:not(.disabled):not(.hasError):hover .input {
+    border-color: var(--neutral-400);
+  }
+  
+  .container:not(.disabled):not(.hasError).focused:hover .input {
+    border-color: var(--primary-color);
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .size-sm .input {
+      height: 30px;
+    }
+    
+    .size-md .input {
+      height: 36px;
+    }
+    
+    .size-lg .input {
+      height: 44px;
+    }
+  }

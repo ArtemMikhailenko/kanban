@@ -1,0 +1,38 @@
+/* src/app/dashboard/page.module.css */
+.dashboardContainer {
+    padding: var(--spacing-lg);
+    min-height: calc(100vh - var(--header-height));
+    background-color: var(--neutral-50);
+  }
+  
+  .loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - var(--header-height));
+    color: var(--neutral-700);
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--neutral-200);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s linear infinite;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .dashboardContainer {
+      padding: var(--spacing-md);
+    }
+  }

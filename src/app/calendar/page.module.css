@@ -1,0 +1,266 @@
+/* src/app/calendar/page.module.css */
+.calendarContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: calc(100vh - var(--header-height));
+    background-color: var(--neutral-50);
+    padding: var(--spacing-lg);
+  }
+  
+  .calendarHeader {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .calendarTitle h1 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin: 0 0 var(--spacing-md) 0;
+  }
+  
+  .calendarControls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+  
+  .viewControls {
+    display: flex;
+    gap: var(--spacing-xs);
+  }
+  
+  .navigationControls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .currentPeriod h2 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--neutral-800);
+    text-transform: capitalize;
+  }
+  
+  .calendar {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--neutral-200);
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: var(--neutral-100);
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  
+  .weekday {
+    padding: var(--spacing-sm);
+    text-align: center;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+  }
+  
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 1fr;
+    flex: 1;
+  }
+  
+  /* Різні стилі для різних режимів перегляду */
+  .calendar.view-month .days {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  
+  .calendar.view-week .days {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  
+  .calendar.view-day .days {
+    grid-template-columns: 1fr;
+  }
+  
+  .day {
+    border-right: 1px solid var(--neutral-200);
+    border-bottom: 1px solid var(--neutral-200);
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .day:nth-child(7n) {
+    border-right: none;
+  }
+  
+  .day.otherMonth {
+    background-color: var(--neutral-100);
+    color: var(--neutral-500);
+  }
+  
+  .day.today {
+    background-color: var(--primary-bg);
+  }
+  
+  .day.today .dayNumber {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .dayHeader {
+    padding: var(--spacing-xs);
+    text-align: right;
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  
+  .dayNumber {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+  }
+  
+  .dayName {
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    color: var(--neutral-800);
+    text-transform: capitalize;
+  }
+  
+  .dayContent {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-xs);
+  }
+  
+  .tasksList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .taskCard {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: white;
+    border-left: 3px solid var(--primary-color);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .taskCard:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .taskTime {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+  
+  .taskTitle {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--neutral-900);
+    margin: 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .taskProject {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-600);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Стилі для завантаження */
+  .loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - var(--header-height));
+    color: var(--neutral-700);
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--neutral-200);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s linear infinite;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 991px) {
+    .calendarContainer {
+      padding: var(--spacing-md);
+    }
+    
+    .calendarControls {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .navigationControls {
+      width: 100%;
+      justify-content: space-between;
+    }
+    
+    .currentPeriod {
+      width: 100%;
+      text-align: center;
+      margin-top: var(--spacing-sm);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .day {
+      min-height: 80px;
+    }
+    
+    .calendar.view-month .days {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .calendar.view-month .weekdays {
+      display: none;
+    }
+    
+    .dayHeader {
+      text-align: left;
+    }
+    
+    .day.otherMonth {
+      display: none;
+    }
+  }

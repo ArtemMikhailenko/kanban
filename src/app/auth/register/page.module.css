@@ -1,0 +1,9 @@
+/* src/app/auth/register/page.module.css */
+.pageContainer {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--neutral-50);
+    background-image: linear-gradient(135deg, var(--primary-bg) 0%, var(--neutral-50) 100%);
+  }

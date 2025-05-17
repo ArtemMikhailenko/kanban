@@ -1,0 +1,198 @@
+/* src/components/dashboard/ProjectsList.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--spacing-lg);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin: 0;
+  }
+  
+  .toolbarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+    gap: var(--spacing-md);
+  }
+  
+  .searchContainer {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    top: 50%;
+    left: var(--spacing-sm);
+    transform: translateY(-50%);
+    color: var(--neutral-500);
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) calc(var(--spacing-sm) * 2 + 18px);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--neutral-300);
+    font-size: var(--font-size-sm);
+    background-color: var(--card-bg);
+    color: var(--neutral-900);
+    transition: all var(--transition-normal);
+  }
+  
+  .searchInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+  }
+  
+  .clearSearchButton {
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-sm);
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--neutral-200);
+    color: var(--neutral-700);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .clearSearchButton:hover {
+    background-color: var(--neutral-300);
+    color: var(--neutral-900);
+  }
+  
+  .sortContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .sortLabel {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+    white-space: nowrap;
+  }
+  
+  .sortSelect {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--neutral-300);
+    background-color: var(--card-bg);
+    color: var(--neutral-900);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .sortSelect:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+  }
+  
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+  
+  .emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px dashed var(--neutral-300);
+    min-height: 300px;
+  }
+  
+  .emptyIcon {
+    color: var(--neutral-400);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .emptyState h3 {
+    font-size: var(--font-size-xl);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .emptyState p {
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-lg);
+    max-width: 400px;
+  }
+  
+  /* Анімації */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .container {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .projectsGrid {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .container {
+      padding: var(--spacing-md);
+    }
+    
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .toolbarContainer {
+      flex-direction: column;
+      align-items: stretch;
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .searchContainer {
+      max-width: 100%;
+    }
+    
+    .projectsGrid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+    
+    .emptyState {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+  }

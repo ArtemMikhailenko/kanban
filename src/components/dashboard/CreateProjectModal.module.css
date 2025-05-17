@@ -1,0 +1,115 @@
+/* src/components/dashboard/CreateProjectModal.module.css */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .label {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-base);
+    resize: vertical;
+    min-height: 100px;
+    transition: all var(--transition-normal);
+    background-color: var(--card-bg);
+    color: var(--neutral-900);
+  }
+  
+  .textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+  }
+  
+  .textarea::placeholder {
+    color: var(--neutral-400);
+  }
+  
+  .templateSection {
+    margin-top: var(--spacing-md);
+  }
+  
+  .templateTitle {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--neutral-800);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .templateGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+  }
+  
+  .templateCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-md);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    background-color: var(--card-bg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-align: left;
+  }
+  
+  .templateCard:hover {
+    border-color: var(--primary-color);
+    background-color: var(--primary-bg);
+    transform: translateY(-2px);
+  }
+  
+  .templateIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .templateInfo {
+    width: 100%;
+  }
+  
+  .templateName {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .templateDescription {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-600);
+    line-height: 1.5;
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .templateGrid {
+      grid-template-columns: 1fr;
+    }
+  }

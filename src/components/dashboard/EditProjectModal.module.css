@@ -1,0 +1,98 @@
+/* src/components/dashboard/EditProjectModal.module.css */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .label {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-base);
+    resize: vertical;
+    min-height: 100px;
+    transition: all var(--transition-normal);
+    background-color: var(--card-bg);
+    color: var(--neutral-900);
+  }
+  
+  .textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+  }
+  
+  .textarea::placeholder {
+    color: var(--neutral-400);
+  }
+  
+  .projectInfo {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    background-color: var(--neutral-100);
+  }
+  
+  .infoItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+  }
+  
+  .infoLabel {
+    color: var(--neutral-600);
+    margin-right: var(--spacing-sm);
+    min-width: 80px;
+  }
+  
+  .infoValue {
+    color: var(--neutral-800);
+    font-weight: 500;
+  }
+  
+  .infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+  
+  .infoGridItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    background-color: var(--card-bg);
+    border: 1px solid var(--neutral-200);
+  }
+  
+  .infoCount {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+  
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .projectInfo {
+      padding: var(--spacing-sm);
+    }
+  }
